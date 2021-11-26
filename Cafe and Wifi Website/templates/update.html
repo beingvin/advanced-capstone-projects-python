@@ -1,0 +1,61 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf  %}
+
+{% block title %}update a cafe {% endblock %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+
+{% block content %}
+
+<header>
+  <nav>
+      <ul>
+          <li class="logo"> <a href="{{ url_for('home') }}"><img src="../static/images/cafe-logo.png" alt="cafe-logo.png"> <span> HUB </a> </span></li>
+      </ul>
+  </nav>
+</header><br>
+
+<div class="container-update">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8">
+  
+        <h1>Update cafe from the database</h1>
+  
+        <form action="/update/{{cafe.id}}" method="post">
+            <label for="">Cafe Name</label><br>
+            <input type="text" name="Name" value="{{cafe.name}}" ><br><br>
+            <label for="">Price</label><br>
+            <input type="text" name="Price" value="{{cafe.coffee_price}}"><br><br>
+            <label for="">Google map (URL)</label><br>
+            <input type="text" name="Map" value="{{cafe.map_url}}"><br><br>
+            <label for="">Image (URL)</label><br>
+            <input type="text" name="Image" value="{{cafe.img_url}}"><br><br>
+            <label for="">Available Seats </label><br>
+            <input type="text" name="Seats" value="{{cafe.seats}}"><br><br>
+            <!-- <label for="">Toilet Available</label><br>
+            <input type="checkbox" name="Toilet" value="{{cafe.has_toilet}}"><br><br>
+            <label for="">Wifi Available</label><br>
+            <input type="checkbox" name="Wifi" value="{{cafe.has_wifi}}"><br><br>
+            <label for="">Sockets Available</label><br>
+            <input type="checkbox" name="Sockets" value="{{cafe.has_sockets}}"><br><br>
+            <label for="">Calling Available</label><br>
+            <input type="checkbox" name="Calling " value="{{cafe.can_take_calls}}"><br><br> -->
+
+            <button class="btn btn-dark" type="submit">Update</button><br><br><br><br><br><br>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div><p>Copyright © {{ footer_year }} | <a href="https://beingvin.github.io/iamvin/"> v  i  n </a>  </p></div>
+</footer>
+
+{% endblock %}

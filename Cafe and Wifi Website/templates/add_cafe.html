@@ -1,0 +1,43 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}add new cafe{% endblock %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+
+{% block content %}
+
+<header>
+  <nav>
+    <ul>
+      <li class="logo"> <a href="{{ url_for('home') }}"><img src="../static/images/cafe-logo.png" alt="cafe-logo.png">
+          <span> HUB </a> </span></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container-add">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8">
+
+        <h1>Add a new cafe into the database</h1>
+
+        <!-- This is where your WTForm will go -->
+        {{ wtf.quick_form(form, novalidate=True) }}<br><br><br>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div><p>Copyright © {{ footer_year }} | <a href="https://beingvin.github.io/iamvin/"> v  i  n </a>  </p></div>
+</footer>
+
+{% endblock %}

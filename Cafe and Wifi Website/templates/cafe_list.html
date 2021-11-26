@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Coffee and Wifi{% endblock %}
+
+{% block content %}
+
+<div class="container-cafe-list">
+    <div>
+        {% for cafe in all_cafe %}
+        <div class="cafe_box">
+            <div class="cafe_content">
+                <h2>{{cafe.id}}</h2><br><br>
+                <h1>{{cafe.name}}</h1><br>
+                <div class="amenities">
+                    <ul>
+                        <li><img src="../static/images/coffee-cup.png" alt="coffee-cup.png"> {{cafe.coffee_price}}</li>
+                        <li><img src="../static/images/placeholder.png" alt="placeholder.png"> {{cafe.location}}</li>
+                        <li><img src="../static/images/dinning-table.png" alt="dinning-table.png"> {{cafe.seats}}</li>
+                        <li><img src="../static/images/toilet.png" alt="toilet.png"> {{cafe.has_toilet}}</li>
+                        <li><img src="../static/images/wifi.png" alt="wifi.png"> {{cafe.has_wifi}}</li>
+                        <li><img src="../static/images/socket.png" alt="socket.png"> {{cafe.has_sockets}}</li>
+                        <li><img src="../static/images/rejected.png" alt="rejected.png"> {{cafe.can_take_calls}}</li>
+                        <li><a class="map_link" href="{{cafe.map_url}}"><img src="../static/images/map.png" alt="map.png">Map</a></li>
+                    </ul>
+                </div>
+       </div>
+            <div class="cafe_image">
+             <a href="{{ url_for('update_cafe', id=cafe.id, cafe_name=cafe.name) }}"><img class="edit"
+                src="../static/images/editing.png" alt="trash-bin.png"></a><br>
+       
+              <img  class="image" src="{{cafe.img_url }}" alt="{{cafe.name}}.jpg"> <br>
+             
+              <a href="{{ url_for('delete_cafe', cafe_id=cafe.id) }}"><img class="delete"
+                src="../static/images/trash-bin.png" alt="trash-bin.png"></a>
+    
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> work from cafe | coffe with wifi </title>
+    {% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    {% endblock %}
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li class="logo"> <a href="{{ url_for('home') }}"><img src="../static/images/cafe-logo.png" alt="cafe-logo.png"> <span> HUB </a> </span></li>
+            </ul>
+        </nav>
+    </header>
+
+    {% block content %}
+     
+    {% endblock %}
+    
+    <footer>
+        <div><p>Copyright © {{ footer_year }} | <a href="https://beingvin.github.io/iamvin/">v  i  n </a>  </p></div>
+    </footer>
+
+</body>
+</html>

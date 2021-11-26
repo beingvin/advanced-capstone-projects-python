@@ -1,0 +1,223 @@
+* {
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+/* -------------- navingation/header ------------- */
+
+nav {
+    position:absolute;
+    z-index: 2;
+    top: 1rem;
+    left: 3rem;
+}
+
+.logo, a{
+    text-decoration: none;
+    list-style: none;
+    position: relative;
+    font-size: 1.5rem;
+    font-weight: 600;
+    opacity: 0.9;
+    font-family: monospace;
+    color: #000;
+}
+.logo a img {
+    width: 45px;
+    z-index: 2;
+} 
+.logo a span {
+    background-color: darkseagreen;
+    font-family: monospace;
+    padding: 0 10px;
+    float: right;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+/* -------------- footer ------------- */
+
+footer div {
+    text-align: center;
+    background-color: black;
+    opacity: 0.9;
+    color: white;
+    font-size: smaller;
+}
+
+footer div a {
+    text-decoration: none;
+    font-size: medium;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif; 
+}
+
+footer div a:hover {
+    color: darkseagreen;
+    text-decoration: none;
+}
+
+/* -------------- home ------------- */
+
+.container-home {
+    display:block;
+    position: relative;
+    background-color: rgb(0,0,0,0);
+    background-image: url("../images/cafe.jpg");
+    background-size: cover;
+    height: 100vh;
+    text-align: center;
+   
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position:absolute;
+    top: 0;
+    z-index: 1;
+    opacity: 0.5;
+    
+}
+.container-home h1 {
+    font-size: 5rem;
+    font-weight: bold;
+    color: white;
+    position: relative;
+    top:30%;
+    z-index: 2;
+    text-shadow: 3px 3px 3px black;
+}
+
+.container-home h3 {
+    font-size: 2rem;
+    position: relative;
+    top:35%;
+    z-index: 2;
+}
+
+.container-home h3 a{
+    text-decoration: none;
+    /* color: chocolate; */
+    color: #B3773F;
+}
+
+.container-home h3 a:hover {
+    color: darkorange;
+}
+
+/* -------------- caffee list ------------- */
+.container-cafe-list {
+    margin-top: 6%;
+}
+.cafe_box{
+    background: linear-gradient(85deg,#434343,#262626);
+    color: #6C776C;
+    /* color: #FF0400; */
+    margin-top: 1%;
+    display:flex;
+    position: relative;
+    width: 50%;
+    border-radius: 20px;
+    border: none;
+    padding: 30px;
+    left: 25%;
+    margin-bottom: 50px;
+    box-shadow:-3rem 0 3rem -2rem #000;
+    outline: none;
+    opacity: 0.9;
+    
+}
+
+.cafe_box:hover {
+    /* box-shadow: -50px -10px 30px black; */
+    outline: none;
+    color:whitesmoke;
+    background: #6C776C;
+}
+
+.cafe_content {
+    width: 60%;
+}
+
+.cafe_content h2 {
+    display: inline-block;
+    background-color: black;
+    width: 30px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.cafe_content h1{
+    display: inline-block;
+    font-size: 2.5rem;
+}
+
+.cafe_content ul {
+    margin-top: 20px;
+    display: inline-grid;
+    grid-template-columns:repeat(2, 190px);
+    grid-column-gap: 5px;
+    grid-row-gap: 10px;
+    list-style: none;
+    width: 50%;
+}
+
+.cafe_content ul li img{
+    margin-right: 20px;
+
+}
+
+.map_link {
+    display: block;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    color:azure; 
+    font-size: medium;
+    font-weight: normal;
+}
+.map_link:hover {
+
+}
+
+
+
+.cafe_image { 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 40%;
+}
+
+.image {
+    /* margin-top: 5%; */
+    border-radius: 1rem;
+    width: 13rem;
+    height: 13rem;
+}
+
+.delete, .edit {    
+    width: 1rem;
+} 
+
+.delete{
+    margin-top: 100%;
+}
+
+
+
+/* -------------- update ------------- */
+
+.container-update {
+    
+    margin-top: 6%;
+}
+
+/* -------------- add new ------------- */
+
+.container-add {
+    margin-top: 6%;
+}

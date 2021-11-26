@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+    {% block title %}index{% endblock %}
+
+
+    {% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    {% endblock %}
+
+    {% block content %}
+
+        <div class="container-home">\
+            <h1> WELCOME TO {{ cafename.upper() }} </h1>
+            <h3> <a href="{{ url_for('cafe_list') }}"> View all cafes </a> | <a href="{{ url_for('add_cafe') }}">Add new cafe</a> </h3>
+            <div class="overlay"></div>
+        </div>
+
+    {% endblock %}
