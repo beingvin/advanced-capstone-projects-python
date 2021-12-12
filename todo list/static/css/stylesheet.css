@@ -1,0 +1,240 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* -------------- header ------------- */
+
+header nav ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+    list-style: none;
+    background-color: #333333;
+    color: white;
+    font-size: 1rem;
+    padding: 0.5% 0;
+}
+
+header ul li {
+    margin-right: 5%;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.home-link {
+    position: relative;
+    right: 60rem;
+}
+
+/* -------------- title ------------- */
+
+.title{
+    background-color: #796EFF;
+}
+
+.title h2 {
+    margin-left: 2rem;
+    font-size: 2rem;
+    opacity: 0.3;
+}
+
+.create {
+    background: #F4F4F9;
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+
+.create p {
+    margin-left: 2rem;
+}
+
+/* -------------- input ------------- */
+
+.input-box{
+    /* margin-left: 2rem; */
+    border-bottom: 1px solid #EEF0F5;
+    padding: 8px 32px;
+}
+
+
+
+.input-box input{
+    width: 90vw;
+    height: 10vh;
+    font-size: 2rem;
+    outline: none;
+    border: none;
+}
+
+
+/* -------------- lists ------------- */
+
+.lists {
+    display: flex; 
+    justify-content: space-around;
+    border: 1px solid #EEF0F5;
+    border-top: none;
+    color: rgb(117,117,117);
+    border-radius: 2px;
+    padding: 5px 32px;
+    font-size: 1.5rem;
+}
+.lists ul{
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+}
+
+
+/* .lists input {
+    position: relative;
+    width: 20vw ;
+}
+
+.lists a {
+    width: 30vw ;
+} */
+
+/* .date {
+    width: 7rem;
+   
+} */
+
+.delete {
+    text-decoration: none;
+    color:#757575
+}
+
+
+
+/* -------------- login page ------------- */
+
+.box {
+    padding: 10% 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    /* margin-top: 5%; */
+}
+
+.box h1 {
+    font-size: 3rem;
+}
+
+.box input {
+    width: 30vw;
+    height: 5vh;
+    padding: 5%;
+    margin: 5% auto;
+    box-shadow: 2px 2px black ;
+    border-radius: 5px;
+}
+
+.box button {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 10vw;
+    height: 5vh;
+    font-size: larger;
+    background:rgb(78, 111, 219);
+    color: floralwhite;
+    cursor: pointer;
+}
+
+.box button:hover{
+    background:rgb(128, 157, 221);
+}
+
+.signup {
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    padding: 1%;
+    font-size: larger;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-top: 2%;
+}
+
+
+.signup:hover {
+    background: #796EFF;
+    color: white;
+}
+
+
+/* -------------- signup page ------------- */
+.box-2 {
+    padding: 10% 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    /* margin-top: 5%; */
+}
+
+.box-2 h1 {
+    font-size: 3rem;
+}
+
+.box-2 input {
+    width: 30vw;
+    height: 5vh;
+    padding: 5%;
+    margin: 5% auto;
+    box-shadow: 2px 2px black ;
+    border-radius: 5px;
+}
+
+.box-2 button {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 10vw;
+    height: 5vh;
+    font-size: larger;
+    background:#796EFF;
+    color: floralwhite;
+    cursor: pointer;
+}
+
+.box-2 button:hover{
+    background:#474275;
+}
+
+/* -------------- footer ------------- */
+
+footer div {
+    display:block;
+    position:absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100vw;
+    background-color: black;
+    opacity: 0.9;
+    color: white;
+    font-size: smaller;
+}
+
+footer div a {
+    text-decoration: none;
+    font-size: medium;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif; 
+}
+
+footer div a:hover {
+    color: darkseagreen;
+    text-decoration: none;
+}

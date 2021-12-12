@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}index{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="title">
+        <h2> Flask todo list </h2>
+    </div>
+
+
+
+    <div class="span6">
+        <h1>Really simple to-do lists you can share</h1>
+        <p><a class="btn-primary" href="{{ url_for('create_list', url=url) }}">Create a to-do list</a></p>
+        <p>No sign up required</p>
+    </div>
+
+    <!-- <form action="", method="post" autocomplete="off" novalidate=True >
+        <div class="input-box">
+            <input type="text" name="Message" placeholder="Write your text here..." autofocus> 
+        </div>
+    </form> -->
+
+        
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}index{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="title">
+       
+        <h2> My to-do list {{ todo_title }} </h2>
+    
+    </div>
+
+    <div class="create">
+        <p>Create your to do list below </p>
+    </div>
+
+    <form action="", method="post" autocomplete="off" novalidate=True >
+        <div class="input-box">
+            <input type="text" name="Message" placeholder="Write your text here..." autofocus> 
+        </div>
+    </form>
+
+    {% if current_user.is_authenticated: %}
+        <div >
+            {% for list in lists %}
+            <div class="lists">
+
+                <ul>
+                    
+                    <li><input type="checkbox" name="Chechbox" class="Checkbox"></li>
+                    <li>{{ list.text }}</li>
+                    <li><a class="delete" href="{{ url_for('update_list', list_id=list.id, title=list.title) }}"><i class="fas fa-pencil-alt"></i></a></li>
+                    <li><a class="delete" href="{{ url_for('delete_list', list_id=list.id, title=list.title) }}"><i class="fas fa-trash"></i></a></li>
+                </ul>
+           
+            </div>
+            {% endfor %}
+        </div>
+    
+    {% else: %}
+    <div >
+        {% for list in lists %}
+            <div class="lists">
+
+                <ul>
+                    
+                    <li><input type="checkbox" name="Chechbox" class="Checkbox"></li>
+                    <li>{{ list.text }}</li>
+                    <li><a class="delete" href="{{ url_for('update_list', list_id=list.id, title=list.title) }}"><i class="fas fa-pencil-alt"></i></a></li>
+                    <li><a class="delete" href="{{ url_for('delete_list', list_id=list.id, title=list.title) }}"><i class="fas fa-trash"></i></a></li>
+                </ul>
+           
+            </div>
+        
+        {% endfor %}
+    </div>
+    {% endif %}
+
+
+{% endblock %}

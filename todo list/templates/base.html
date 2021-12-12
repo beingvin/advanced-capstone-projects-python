@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Todo list app | flask </title>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+    {% block styles %}
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}">
+    {% endblock %}
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li ><a href="{{ url_for('index') }}" class="home-link">home</a></li>
+                {% if not current_user.is_authenticated: %}
+                <li><a href="{{ url_for('login') }}">Log in</a></li>
+                {% endif %}
+                <li><a href="{{ url_for('create_list', url=url) }}">+ New list</a></li>
+                {% if current_user.is_authenticated: %}
+                <li>{{ current_user.email.title() }}</li>
+                 <li><a href="{{ url_for('logout') }}">Log out</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    {% block content %}
+     
+    {% endblock %}
+    
+    <footer>
+        <div><p>Copyright © {{ footer_year }} | <a href="https://beingvin.github.io/iamvin/">v  i  n </a>  </p></div>
+    </footer>
+
+</body>
+</html>
