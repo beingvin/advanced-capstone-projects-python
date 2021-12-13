@@ -9,8 +9,16 @@
 
 {% block content %}
 
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+             <p>{{ message }} </p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
     <div class="title">
-       
+        
         <h2> My to-do list {{ todo_title }} </h2>
     
     </div>
@@ -34,8 +42,8 @@
                     
                     <li><input type="checkbox" name="Chechbox" class="Checkbox"></li>
                     <li>{{ list.text }}</li>
-                    <li><a class="delete" href="{{ url_for('update_list', list_id=list.id, title=list.title) }}"><i class="fas fa-pencil-alt"></i></a></li>
-                    <li><a class="delete" href="{{ url_for('delete_list', list_id=list.id, title=list.title) }}"><i class="fas fa-trash"></i></a></li>
+                    <li><a class="edit" href="{{ url_for('update_list', list_id=list.id, url=url) }}"><i class="fas fa-pencil-alt"></i></a></li>
+                    <li><a class="delete" href="{{ url_for('delete_list', list_id=list.id, url=link.url_todo_lists.link) }}"><i class="fas fa-trash"></i></a></li>
                 </ul>
            
             </div>
@@ -51,8 +59,8 @@
                     
                     <li><input type="checkbox" name="Chechbox" class="Checkbox"></li>
                     <li>{{ list.text }}</li>
-                    <li><a class="delete" href="{{ url_for('update_list', list_id=list.id, title=list.title) }}"><i class="fas fa-pencil-alt"></i></a></li>
-                    <li><a class="delete" href="{{ url_for('delete_list', list_id=list.id, title=list.title) }}"><i class="fas fa-trash"></i></a></li>
+                    <li><a class="delete" href="{{ url_for('update_list', list_id=list.id, url=url) }}"><i class="fas fa-pencil-alt"></i></a></li>
+                    <li><a class="delete" href="{{ url_for('delete_list', list_id=list.id, url=url) }}"><i class="fas fa-trash"></i></a></li>
                 </ul>
            
             </div>

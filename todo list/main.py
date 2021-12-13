@@ -96,7 +96,6 @@ def before_request():
         all_user = User.query.all()
         user = [x for x in all_user if x.id == session['user_id']][0]
         g.user = user
-        print(f"g user name : {g.user.email}")
 
 
 ########################################## ####### #### HOME ####
@@ -150,12 +149,13 @@ def create_list(url):
 ########################################## ####### #### UPDATE ####
 @ app.route("/update/<int:list_id>")
 def update_list(list_id):
-    return "<h1>You clicked updated</>"
+    return "<h1>You clicked on update</>"
 
 ########################################## ####### #### DELETE ####
 @ app.route("/delete/<int:list_id>", methods = ["GET"])
 def delete_list(list_id):
-    url=request.args["title"]
+    url=request.args["url"]
+    print(url)
     list=db.session.query(Todolist).get(list_id)
     if list:
         db.session.delete(list)

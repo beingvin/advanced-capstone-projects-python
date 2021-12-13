@@ -8,16 +8,21 @@
 {% endblock %}
 
 {% block content %}
-
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+             <p>{{ message }} </p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <div class="title">
         <h2> Flask todo list </h2>
     </div>
 
 
-
-    <div class="span6">
-        <h1>Really simple to-do lists you can share</h1>
-        <p><a class="btn-primary" href="{{ url_for('create_list', url=url) }}">Create a to-do list</a></p>
+    <div class="index-content">
+        <h1>Simple to-do lists</h1>
+        <p><a href="{{ url_for('create_list', url=url) }}">Create a to-do list</a></p>
         <p>No sign up required</p>
     </div>
 

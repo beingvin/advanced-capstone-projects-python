@@ -20,6 +20,7 @@ header nav ul {
 }
 
 header ul li {
+    
     margin-right: 5%;
 }
 
@@ -28,16 +29,13 @@ header ul li a {
     color: white;
 }
 
-.home-link {
-    position: relative;
-    right: 60rem;
-}
+
 
 /* -------------- title ------------- */
 
-.title{
-    background-color: #796EFF;
-}
+/* .title{
+    background-color: #F56262;
+} */
 
 .title h2 {
     margin-left: 2rem;
@@ -46,8 +44,10 @@ header ul li a {
 }
 
 .create {
-    background: #F4F4F9;
+    background: #F56262;
+    color: white;
     font-size: 2rem;
+    font-weight: 700;
     padding: 1rem 0;
 }
 
@@ -73,6 +73,40 @@ header ul li a {
     border: none;
 }
 
+/* -------------- index-content ------------- */
+.index-content {
+    display: flex;
+    width: 100vw;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.index-content h1 {
+    margin-top: -10rem;
+    font-weight: 700;
+    font-size: 5rem;
+    color: #525C65
+}
+
+.index-content p {
+    margin-top: 2rem;
+    font-weight: 700;
+    width: 50vw;
+    text-align: center;
+    color: #525C65
+}
+
+.index-content p a {
+    text-decoration: none;
+    color: white;
+    /* border: 1px solid black; */
+    border-radius: 15px;
+    background-color: #F56262;
+    padding: 1.5%;
+    font-size: 2rem;
+}
 
 /* -------------- lists ------------- */
 
@@ -81,7 +115,7 @@ header ul li a {
     justify-content: space-around;
     border: 1px solid #EEF0F5;
     border-top: none;
-    color: rgb(117,117,117);
+    color: #525C65;;
     border-radius: 2px;
     padding: 5px 32px;
     font-size: 1.5rem;
@@ -109,10 +143,16 @@ header ul li a {
    
 } */
 
-.delete {
+.lists a {
     text-decoration: none;
-    color:#757575
+    color:#525C65;
 }
+
+.delete .fa-trash:hover{
+    color:#F56262;
+}
+
+
 
 
 
@@ -130,6 +170,7 @@ header ul li a {
 
 .box h1 {
     font-size: 3rem;
+    color: #525C65;
 }
 
 .box input {
@@ -137,7 +178,7 @@ header ul li a {
     height: 5vh;
     padding: 5%;
     margin: 5% auto;
-    box-shadow: 2px 2px black ;
+    box-shadow: 2px 2px 5px #525C65;;
     border-radius: 5px;
 }
 
@@ -147,7 +188,9 @@ header ul li a {
     width: 10vw;
     height: 5vh;
     font-size: larger;
-    background:rgb(78, 111, 219);
+    background:#F56262;
+    border: none;
+    border-radius: 5px;
     color: floralwhite;
     cursor: pointer;
 }
@@ -158,18 +201,18 @@ header ul li a {
 
 .signup {
     text-decoration: none;
-    color: black;
-    border: 1px solid black;
+    color: #525C65;
+    /* border: 1px solid black; */
     padding: 1%;
-    font-size: larger;
-    font-weight: bold;
+    font-size: medium;
+    font-weight: 700;
     border-radius: 10px;
     margin-top: 2%;
 }
 
 
 .signup:hover {
-    background: #796EFF;
+    background:rgb(128, 157, 221);
     color: white;
 }
 
@@ -187,6 +230,7 @@ header ul li a {
 
 .box-2 h1 {
     font-size: 3rem;
+    color: #525C65;
 }
 
 .box-2 input {
@@ -194,7 +238,7 @@ header ul li a {
     height: 5vh;
     padding: 5%;
     margin: 5% auto;
-    box-shadow: 2px 2px black ;
+    box-shadow: 2px 2px 5px #525C65;;
     border-radius: 5px;
 }
 
@@ -204,13 +248,15 @@ header ul li a {
     width: 10vw;
     height: 5vh;
     font-size: larger;
-    background:#796EFF;
+    background:rgb(128, 157, 221);
+    border: none;
+    border-radius: 5px;
     color: floralwhite;
     cursor: pointer;
 }
 
 .box-2 button:hover{
-    background:#474275;
+    background:#F56262;
 }
 
 /* -------------- footer ------------- */
@@ -235,6 +281,6 @@ footer div a {
 }
 
 footer div a:hover {
-    color: darkseagreen;
+    color: #F56262;
     text-decoration: none;
 }
