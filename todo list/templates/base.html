@@ -27,7 +27,7 @@
                 {% endif %}
                 <li><a href="{{ url_for('create_list', url=url) }}">+ New list</a></li>
                 {% if current_user.is_authenticated: %}
-                <li>{{ current_user.email.title() }}</li>
+                <li><a href="{{url_for('create_list', url=url) }}">{{ current_user.email.title() }}</a></li>
                  <li><a href="{{ url_for('logout') }}">Log out</a></li>
                 {% endif %}
             </ul>

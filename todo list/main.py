@@ -75,7 +75,7 @@ class Todolist(db.Model):
 
     # url_lists =db.relationship("Url", backref = "url_todo_lists")
 
-# db.create_all()
+db.create_all()
 
 
 # CREATE  USER LOADER
@@ -96,7 +96,6 @@ def before_request():
         all_user = User.query.all()
         user = [x for x in all_user if x.id == session['user_id']][0]
         g.user = user
-
 
 ########################################## ####### #### HOME ####
 @ app.route("/", methods = ["GET", "POST"])
@@ -166,9 +165,12 @@ def delete_list(list_id):
 
 
 ########################################## ####### #### SIGNUP ####
-@ app.route('/user/signup/<url>', methods = ["POST", "GET"])
-def signup(url):
+@ app.route('/user/signup', methods = ["POST", "GET"])
+def signup():
+    url=request.args["url"]
+    print(f"url : { url } ")
     link = Url.query.filter_by(link=url).first()
+    print(f"link : {link}")
     if request.method == "POST":
 
         if User.query.filter_by(email = request.form.get('email')).first():
@@ -185,8 +187,7 @@ def signup(url):
             email=request.form.get('email'),
             password=hash_and_salted_password,
             date_created = datetime.today().strftime("%d/%m/%Y"),
-            url_id=link.id
-            
+            url_id = link.id
         )
         db.session.add(new_user)
         db.session.commit()

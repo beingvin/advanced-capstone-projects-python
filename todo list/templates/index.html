@@ -8,22 +8,30 @@
 {% endblock %}
 
 {% block content %}
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-             <p>{{ message }} </p>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
+    <div class="flask-msg">
+        <p>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <p>{{ message }} </p>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </p>
+    </div>
     <div class="title">
         <h2> Flask todo list </h2>
     </div>
 
 
-    <div class="index-content">
-        <h1>Simple to-do lists</h1>
-        <p><a href="{{ url_for('create_list', url=url) }}">Create a to-do list</a></p>
-        <p>No sign up required</p>
+    <div class="index-container">
+        <div class="index-content">
+            <h1>Simple to-do app </h1>
+            <p><a href="{{ url_for('create_list', url=url) }}">Create a to-do list</a></p>
+            <p class="no-sign-up">No sign up required</p>
+            <img src="{{ url_for('static', filename='images/to-do-list.png') }}" alt="to-do-list.png">
+        </div>
+
     </div>
 
     <!-- <form action="", method="post" autocomplete="off" novalidate=True >
