@@ -1,8 +1,3 @@
-
-#file = open ("sample.pdf", 'rb')
-#read = file.read()
-#print(read)
-
 import pyttsx3
 import PyPDF2
 
