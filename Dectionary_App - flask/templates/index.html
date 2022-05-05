@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dictionary App</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+  </head>
+  <body>
+    <h1>Dictionary</h1>
+    <br />
+
+    <div class="container">
+      <form action="http://127.0.0.1:5000/" method="POST">
+        <!-- <label class="searchLabel" for="searchWord"> Definations </label> -->
+        <input
+          class="searchBar"
+          type="search"
+          name="searchWord"
+          placeholder="Ask me any word"
+        />
+        <button class="searchBtn" type="submit">search</button>
+      </form>
+
+      {% if data %} {% if data['definitions'] %}
+
+      <div class="result">
+        <h1 class="word">{{data['word']}}</h1>
+        <p class="pronunciation">[ {{data['pronunciation']}} ]</p>
+        <hr />
+
+        {% for data in data['definitions'] %}
+        <h3>Definition :</h3>
+        <p class="defintion">{{data['definition']}}</p>
+        <p class="type">( {{data['type']}} )</p>
+        <h3>Example :</h3>
+        <p class="example">{{data['example']}}</p>
+        {% endfor %}
+
+        {% if data['definitions'][0]["image_url"] %}
+        <h3>Image :</h3>
+        <img
+          class="image"
+          src="{{data ['definitions'][0]['image_url']}}"
+          alt="image"
+        />
+        {% endif %}
+
+      </div>
+
+      {% else %}
+
+      <p class="error">
+        No defination for "{{ word }}", check spelling in word
+      </p>
+
+      {% endif %} {% endif %}
+    </div>
+    <footer>
+      <p>vin © copyright | {{footer_year}}</p>
+    </footer>
+  </body>
+</html>
