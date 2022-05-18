@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}Update Admin{% endblock %}
+
+{% block content %}
+<!-- Main content section starts  -->
+
+<div class="main-content">
+    <div class="wrapper">
+
+        <h1>Update Category</h1> <br>
+
+        <br>
+
+        <!-- manage oders table -->
+        <form action="{{url_for('admin.manage-category.update_category', id=current_category['_id'])}}" method="POST" enctype="multipart/form-data">
+
+            <table class="tbl-50">
+
+
+                <tr>
+                    <td>Title :</td>
+                    <td> <input class="input" type="text" name="title" placeholder="Category title" value="{{ current_category['title'] }}"> </td>
+
+                </tr>
+                <tr>
+                    <td>Current Image :</td>
+                    <td>Image not available.</td>
+                </tr>
+
+                <tr>
+                    <td>New Image :</td>
+                    <td> <input type="file" name="image">  </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Featured :</td>
+
+                    <td>
+
+                        {% if current_category['featured'] == "Yes"  %}
+                        <input type="radio" name="featured" value="Yes" checked > Yes </input>
+                        <input type="radio" name="featured" value="No"> No </input>
+                        {% else %}
+                        <input type="radio" name="featured" value="Yes" > Yes </input>
+                        <input type="radio" name="featured" value="No" checked > No </input>
+                        {% endif %}
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Active :</td>
+
+                    <td>
+                        {% if current_category['active'] == "Yes" %}
+                        <input type="radio" name="active" value="Yes" checked> Yes
+                        <input type="radio" name="active" value="No"> No
+                        {% else %}
+                        <input type="radio" name="active" value="Yes" > Yes
+                        <input type="radio" name="active" value="No" checked> No
+                        {% endif %}
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td colspan='2'>
+                        <input type="hidden" name="current_image" value="">
+                        <input type="submit" name="submit" value="Update-Category" class="submit-btn">
+                    </td>
+
+                </tr>
+
+            </table>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- Main content section ends  -->
+
+
+<!-- Footer section starts  -->
+
+{% endblock %}
+
+<!-- Footer section ends  -->

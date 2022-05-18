@@ -1,0 +1,138 @@
+{% extends "base.html" %} {% block title %}Manage Items{% endblock %} {% block
+content %}
+
+<!-- Main content section starts  -->
+
+<div class="main-content">
+  <div class="wrapper">
+    <h1>Add Items</h1>
+    <br />
+
+    <form
+      action="{{url_for('admin.manage-items.add_items')}}"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <table class="tbl-50">
+        <tr>
+          <td>Title :</td>
+          <td>
+            <input class="input" type="text" name="title" placeholder="title" />
+          </td>
+        </tr>
+        <tr>
+          <td>Price :</td>
+          <td>
+            <input
+              class="input"
+              type="number"
+              name="price"
+              placeholder="price"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Brand :</td>
+          <td>
+            <input
+              class="input"
+              type="text"
+              name="brand"
+              placeholder="Brand name"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Size :</td>
+          <td>
+            <input type="checkbox" name="S" value="S" /> S <br />
+            <input type="checkbox" name="L" value="L" /> L <br />
+            <input type="checkbox" name="M" value="M" /> M <br />
+            <input type="checkbox" name="XL" value="XL" /> XL <br />
+            <input type="checkbox" name="XXL" value="XXL" /> XXL <br />
+            <input type="checkbox" name="XXXL" value="XXXL" /> XXL <br />
+          </td>
+        </tr>
+
+        <tr>
+          <td>Product Details :</td>
+
+          <td>
+            Product Description :
+                <textarea
+                  class="input"
+                  name="description"
+                  cols="30"
+                  rows="4"
+                  placeholder="Product desc ription"
+                ></textarea> <br>
+
+            Product Material :
+            <input class="input" type="text" name="material" placeholder="Material" /> <br>
+
+            Product Type :
+            <input class="input" type="text" name="type" placeholder="Type" /> <br>
+
+            Product Gender :
+            <input class="input" type="text" name="gender" placeholder="Gender" /> <br>
+
+            Product Occasion :
+            <input class="input" type="text" name="occasion" placeholder="Occasion" /> <br>
+          </td>
+        </tr>
+
+        <tr></tr>
+
+        <tr>
+          <td>Image Link :</td>
+          <td><input class="input" type="file" name="image" /></td>
+        </tr>
+
+        <!-- <tr>
+          <td>Category :</td>
+          <td>
+            <select class="input" name="category" required>
+              <option></option>
+            </select>
+          </td>
+        </tr> -->
+
+        <tr>
+          <td>Featured :</td>
+          <td>
+            <input type="radio" name="featured" value="Yes" /> Yes
+            <input type="radio" name="featured" value="No" /> No
+          </td>
+        </tr>
+
+        <tr>
+          <td>Active :</td>
+          <td>
+            <input type="radio" name="active" value="Yes" /> Yes
+            <input type="radio" name="active" value="No" /> No
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="2">
+            <br />
+            <input
+              type="submit"
+              name="submit"
+              value="Add-Food"
+              class="submit-btn"
+            />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</div>
+
+<!-- Main content section ends  -->
+
+<!-- Footer section starts  -->
+
+{% endblock %}
+
+<!-- Footer section ends  -->

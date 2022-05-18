@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Update Admin{% endblock %}
+
+
+
+{% block content %}
+
+<!-- Main content section starts  -->
+
+<div class="main-content">
+    <div class="wrapper">
+
+        <h1>Add Category</h1> <br>
+
+
+
+        <br>
+
+        <!-- Add Category form -->
+
+        <form action="{{url_for('admin.manage-category.add_category')}}" method="POST" enctype="multipart/form-data">
+
+            <table class="tbl-50">
+
+
+                <tr>
+                    <td>Title :</td>
+                    <td> <input class="input" type="text" name="title" placeholder="Category title"> </td>
+
+                </tr>
+
+                <tr>
+                    <td>Select Image :</td>
+                    <td> <input type="file" name="image"> </td>
+
+                </tr>
+
+                <tr>
+                    <td>Featured :</td>
+                    <td> <input type="radio" name="featured" value="Yes"> Yes
+                        <input type="radio" name="featured" value="No"> No
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>Active :</td>
+                    <td> <input type="radio" name="active" value="Yes"> Yes
+                        <input type="radio" name="active" value="No"> No
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td colspan='2'>
+                        <input type="submit" name="submit" value="Add-Category" class="submit-btn">
+                    </td>
+
+                </tr>
+
+            </table>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- Main content section ends  -->
+
+
+
+<!-- footer section starts  -->
+
+{% endblock %}
+
+<!-- footer section ends  -->

@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper {
+    padding: 1%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.clear-fix {
+    float: none;
+    clear: both;
+}
+
+
+/* css for menu */
+
+.active_user{
+    font-weight: bolder;
+}
+.menu {
+    border-bottom: 1px solid grey;
+}
+
+.menu ul {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+    margin-left: 10%;
+    list-style: none;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #ff6b81;
+}
+
+.menu ul li a:hover {
+    color: #ff4757;
+}
+
+
+/* css for main-content */
+
+.main-content {
+    padding: 3% 0;
+    background-color: #f1f2f6;
+}
+
+.col-4 {
+    width: 18%;
+    background-color: white;
+    margin: 1%;
+    padding: 2%;
+    float: left;
+}
+
+
+/* css for table */
+
+.tbl-full {
+    width: 100%;
+}
+
+.tbl-50 {
+    width: 50%;
+}
+
+table tr th {
+    border-bottom: 1px solid gray;
+    padding: 1%; 
+    text-align: left;   
+}
+
+table tr td {
+    padding: 1%; 
+}
+
+
+/* css for buttons */
+
+.primary-btn {
+    background-color: #1e90ff;
+    padding: 1%;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.primary-btn:hover {
+    background-color: #3742fa;
+}
+
+.secondary-btn {
+    background-color: #7bed9f;
+    padding: 1%;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.548);
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.secondary-btn:hover {
+    background-color: #2ed573;
+}
+
+.denger-btn {
+    background-color: #ff6b81;
+    padding: 1%;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.denger-btn:hover {
+    background-color: #ff4757;
+}
+
+.submit-btn {
+    background-color: #1e90ff;
+    font-size: large;
+    color: white;
+    border: none;
+    padding: 2%;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #0361c0;
+}
+
+.success {
+    display: inline-block;
+    background-color: #2ed573;
+    padding: 0.5% 1%;
+    border-radius: 10px;
+}
+
+.error {
+    display: inline-block;
+    background-color: #ff4757;
+    padding: 0.5% 1%;
+    border-radius: 10px;
+}
+
+
+/* css for form */
+
+.input {
+    width: 100%;
+    font-size: medium;
+    padding: 0.5% 1%;
+}
+
+
+/* css for footer */
+
+.footer {
+    background-color: #ff4757;
+}
+
+/* css for  Admin login page */
+
+.login {
+    border: 1px solid black;
+    width: 50%;
+    margin: 12% auto;
+    padding: 2%;
+}

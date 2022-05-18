@@ -1,0 +1,108 @@
+
+{% extends "base.html" %}
+{% block title %}home{% endblock %}
+
+
+{% block content %}
+
+
+
+<!-- Main content section starts  -->
+
+<div class="main-content">
+    <div class="wrapper">
+
+        <h1>Dashboard</h1>
+
+        <div class="col-4 text-center">
+
+            <?php
+
+            //1.Sql query to get all category
+            $sql = "SELECT * FROM tbl_category";
+
+            //2.Execute the query 
+            $res = mysqli_query($conn, $sql);
+
+            //Count no of rows 
+            $count = mysqli_num_rows($res);
+
+            ?>
+
+            <h1><?php echo $count ?></h1>
+            <br>
+            Catagories
+        </div>
+
+
+        <div class="col-4 text-center">
+            <?php
+
+            //1.Sql query to get all food
+            $sql2 = "SELECT * FROM tbl_food";
+
+            //2.Execute the query 
+            $res2 = mysqli_query($conn, $sql2);
+
+            //Count no of rows 
+            $count2 = mysqli_num_rows($res2);
+
+            ?>
+
+            <h1><?php echo $count2 ?></h1>
+
+            <br>
+            Foods
+        </div>
+
+
+        <div class="col-4 text-center">
+            <?php
+
+            //1.Sql query to get all order
+            $sql3 = "SELECT * FROM tbl_order";
+
+            //2.Execute the query 
+            $res3 = mysqli_query($conn, $sql3);
+
+            //Count no of rows 
+            $count3 = mysqli_num_rows($res3);
+
+            ?>
+
+            <h1><?php echo $count3 ?></h1>
+            <br>
+            Total orders
+        </div>
+
+
+        <div class="col-4 text-center">
+            <?php
+
+            //1.Sql query to get sum of total revenue
+            $sql4 = "SELECT SUM(total) as total_revenue FROM tbl_order WHERE status='Delivered' ";
+
+            //2.Execute the query 
+            $res4 = mysqli_query($conn, $sql4);
+
+            //Count no of rows 
+            $row = mysqli_fetch_assoc($res4);
+
+            ?>
+
+            <h1>$<?php echo round($row['total_revenue']) ?></h1>
+            <br>
+            Revenue Generated
+        </div>
+
+        <div class="clear-fix">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Main content section ends  -->
+
+{% endblock %}

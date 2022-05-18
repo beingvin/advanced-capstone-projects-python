@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Manage Items{% endblock %}
+
+{% block content %}
+<!-- Main content section starts  -->
+
+<div class="main-content">
+    <div class="wrapper">
+
+        <h1>Manage Items</h1><br>
+
+        <br><br>
+
+        <!-- button to add category -->
+        <a href="{{url_for('admin.manage-items.add_items')}}" class="primary-btn">Add Items</a><br><br>
+
+        <!-- manage food table -->
+
+        <table class="tbl-full">
+            <tr>
+                <th>Sl.No</th>
+                <th class="suc">Title</th>
+                <!-- <th>Description</th> -->
+                <th>Price</th>
+                <th>Image Name</th>
+                <!-- <th>Category_id</th> -->
+                <th>Featured</th>
+                <th>Active</th>
+                <th>Actions</th>
+            </tr>
+            
+                    <!-- Display the values in our table  -->
+            {% for item in items %}
+
+            <tr>
+                
+                <td> {{ loop.index }} </td>         
+                <td> {{ item['title'] }} </td>
+                <!-- <td> </td> -->
+                <td> {{ item['price'] }} </td>
+                <td> {{ item['imageLink'] }} </td>
+                <!-- <td>  </td> -->
+                <td> {{ item['featured'] }} </td>
+                <td> {{ item['active'] }} </td>
+
+                <td>
+                    <a href="" class="secondary-btn">Update Food</a>
+                    <a href="" class="denger-btn">Delete Food</a>
+                </td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</div>
+
+<!-- Main content section ends  -->
+
+
+
+<!-- Footer section starts  -->
+
+{% endblock %}
+
+<!-- Footer section ends  -->

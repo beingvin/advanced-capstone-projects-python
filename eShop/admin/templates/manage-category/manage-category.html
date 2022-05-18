@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}manage category{% endblock %}
+
+
+{% block content %}
+
+
+<!-- Main content section starts  -->
+
+<div class="main-content">
+    <div class="wrapper">
+
+        <h1>Manage Category</h1><br>
+
+        <br><br>
+
+        <!-- button to add category -->
+        <a href="{{url_for('admin.manage-category.add_category')}}" class="primary-btn">Add Category</a><br><br>
+
+
+        <!-- manage category table -->
+
+        <table class="tbl-full">
+            <tr>
+                <th>Sl.No</th>
+                <th class="suc">Title</th>
+                <th>Image Name</th>
+                <th>Featured</th>
+                <th>Active</th>
+                <th>Actions</th>
+            </tr>
+          
+            {% for category in all_categories %}
+            <tr>
+                <td>  {{ loop.index }} </td>
+                <td> {{category['title']}} </td>
+                <td> {{category['imageLink']}} </td>
+                <td> {{category['featured']}} </td>
+                <td> {{category['active']}} </td>
+                <td>
+                    <a href="{{url_for('admin.manage-category.update_category', id = category['_id'] )}}" class="secondary-btn">Update category</a>
+                    <a href="{{url_for('admin.manage-category.delete_category', id = category['_id'] )}}" class="denger-btn">Delete category</a>
+                </td>
+            </tr>
+            {% endfor %}
+            <!-- Display the values in our table  -->
+
+        </table>
+
+    </div>
+
+</div>
+
+<!-- Main content section ends  -->
+
+
+<!-- Footer section starts  -->
+
+{% endblock %}
+
+<!-- Footer section ends  -->

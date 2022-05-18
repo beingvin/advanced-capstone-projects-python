@@ -1,0 +1,58 @@
+
+{% extends "base.html" %}
+{% block title %}manage admin{% endblock %}
+
+
+
+{% block content %}
+
+<!-- Main content section starts  -->
+
+<div class="main-content">
+    <div class="wrapper">
+
+        <h1>Manage Admin</h1><br>
+
+
+        <br><br>
+
+        <!-- button to add admin -->
+        <a href="{{url_for('admin.manage-admin.add_admin')}}" class="primary-btn">Add Admin</a><br><br>
+
+
+        <!-- manage users table -->
+
+        <table class="tbl-full">
+            <tr>
+                <th>Sl.No</th>
+                <th class="suc">Full Name</th>
+                <th>Username</th>
+                <th>Actions</th>
+            </tr>
+
+            {%for admin in all_admin %}
+               
+            <tr>
+                <td> {{ loop.index }}</td>
+                <td>{{admin["fullName"] }}</td>
+                <td>{{admin["username"]}} </td>
+               
+                <td>
+
+                    <a href="{{url_for('admin.manage-admin.change_password', username=admin['username'])}}" class="primary-btn">Change Password</a>
+                    <a href="{{url_for('admin.manage-admin.update_admin', username=admin['username'])}}" class="secondary-btn">Update Admin</a>
+                    <a href="{{url_for('admin.manage-admin.delete_admin', username=admin['username'])}}" class="denger-btn">Delete Admin</a>
+                </td>
+            </tr>
+            {%endfor%}
+
+
+        </table>
+
+    </div>
+
+</div>
+
+<!-- Main content section ends  -->
+
+{% endblock %}

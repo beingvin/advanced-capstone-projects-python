@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title> Livin Boutique | eShop | Online Shopping </title>
+
+
+    <!-- Favicon-->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="static/landing_page/assets/favicon.ico"
+    />
+    <!-- Bootstrap icons-->
+    <link
+      href="static/landing_page/https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='landing_page/css/styles.css')}}"
+    />
+  </head>
+  <body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="{{url_for('main.home') }}">Livin Boutique</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="{{url_for('main.home') }}"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                id="navbarDropdown"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Shop</a
+              >
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" href="{{url_for('main.all_products') }}"
+                    >All Products</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="{{url_for('main.popular_items') }}"
+                    >Popular Items</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{{url_for('main.new_arrivals') }}"
+                    >New Arrivals</a
+                  >
+                </li>
+              </ul>
+            </li>
+            {% if username %}
+            <li class="nav-item username">
+              <a class="nav-link" href="{{url_for('main.home') }}">
+                <img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAB3klEQVRoge2ZzUpCQRSAvwxd9bMOyrYFvUQvUKGVj9GmdyizlwikTUn1AL1BbYJINKNVEFGQtolAW8yV7Ppzx5njnbuYDw6IzM93vHfmnvGCx+ORJAMUgFOgCnwFUQ2+2w3aJJI80AA6EfEI5Bw5DmQaOCZaPBwlIOXAtw8T+W4UHfj+I4+5fDe2YrcOyKDuZ9sEnnC0sAsGssNix1TCZhFJXvpNwbG0qSF3BaoxuwPQMpQdFC1TiUTsw0DbtKNNAi8WfcXGskng1qJvmBvTjjYJXFr0DXMlOJY2aaCO/QJu4LBCzWkIRoWTZ0AvJczlDx349pECjhhfvkhytnFAlRY6a6JOAm6bYaRRhVkZeEA9YVvB5zKwHbTxeDwxkwUqQBO5EnpYNIFzYElS/iMG8XC8SyVRcSDfjbMouSmNBJrArEa7SdAE5kc10EmgI+NizEhHnVrE+LgnQOTcOgl8CIiYEjm3TgJ3AiKmRM6tk8CFgIgpIkfNGdS/BnFvoa9E7EDjsIFaUHHJt1Gltyh7MSawLy3fpcBk66E3YnhfsIg6Xf0Iin8DJ8DCpOV7yaIO8zov9oZFDThA/ShG6JQSOqwC68AasAIsA3P81VAt4BN4Rp2P74Fr1AHf4/FY8At2qtpieyRQSQAAAABJRU5ErkJggg=="
+                />
+                {{ username }}
+              </a>
+            </li>
+            <li class="nav-item logout">
+              <a class="nav-link" href="{{url_for('main.signout') }}">
+                <img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAABmJLR0QA/wD/AP+gvaeTAAABcElEQVRoge3aQUrDQBSA4b/uxQPYLKXHaRFLF/WEIq6KK8/iQqsg2kXiskJdJBYpcZpk3sw4j/fDQKHpZL42lCYNWJZlWflWALdABewijwq4AybBlU0FsAkI6jo2wDiwFag/2dTYn3EjhRo5nquAU6kdeVYBZxITucA7iR0I5lpr504kJskpA2vPwNozsPYMrD0N4DnwAbwAM5+JUp8wHI62RsD7r222wEIzGODtYLvB6NTAruDLBumNTg3sCga4akF/AddawSLo1MC+YG90auAQsBdaaqEr4LzHgkOtZwvMYlziKYC1wDwS61lr+KXVJ+ebJnVI3yNzXVnkkI4Bjv2lNaf9S2t57IWpgUPAg7E5gr2wuYG9sTmBpy1Y1ScPzxLYnMCvEticwFPgCXhsHjuzfw+1Z2DtGVh7BtaegbXnAn9GW8XxSqmJXOAHqZ0IFGUtE/7PzaUXga37xtQ3dpYBQX+NkvoG12hYy7IsK3XfkodkaEEFqZUAAAAASUVORK5CYII="
+                />
+                Sign Out
+              </a>
+            </li>
+            {% else %}
+            <li class="nav-item login">
+              <a class="nav-link" href="{{url_for('main.login') }}">Login</a>
+            </li>
+            <li class="nav-item signup">
+              <a class="nav-link" href="{{url_for('main.signup') }}">Sign Up</a>
+            </li>
+            {%endif%}
+          </ul>
+          <form class="d-flex">
+            <button class="btn btn-outline-dark" type="submit">
+              <i class="bi-cart-fill me-1"></i>
+              Cart
+              <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+{% block content %}
+
+
+{% endblock %}
+
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">
+          Copyright &copy; Your Website 2022
+        </p>
+      </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="static/landing_page/js/scripts.js"></script>
+  </body>
+</html>
