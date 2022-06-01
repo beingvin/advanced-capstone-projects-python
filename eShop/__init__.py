@@ -10,6 +10,8 @@ app = Flask(__name__)
 
 app.config.from_pyfile("config.py")
 
+
+
 ##################### add database (mongodb_client) #####################
 
 mongodb_client.init_app(app)
@@ -19,10 +21,6 @@ mongodb_client.init_app(app)
 
 app.register_blueprint(admin, url_prefix="/admin")
 app.register_blueprint(main, url_prefix="")
-
-
-
-
 
 
 

@@ -38,14 +38,14 @@
                 <td> {{ item['title'] }} </td>
                 <!-- <td> </td> -->
                 <td> {{ item['price'] }} </td>
-                <td> {{ item['imageLink'] }} </td>
+                <td> <a href="{{ item['imageLink'] }}">Image Link</a> </td>
                 <!-- <td>  </td> -->
                 <td> {{ item['featured'] }} </td>
                 <td> {{ item['active'] }} </td>
 
                 <td>
-                    <a href="" class="secondary-btn">Update Food</a>
-                    <a href="" class="denger-btn">Delete Food</a>
+                    <a href="{{url_for('admin.manage-items.update_items', id = item['_id'] )}}" class="secondary-btn">Update Item</a>
+                    <a href="{{url_for('admin.manage-items.delete_items', id = item['_id'] )}}" class="denger-btn">Delete Item</a>
                 </td>
             </tr>
 

@@ -34,7 +34,8 @@
             <tr>
                 <td>  {{ loop.index }} </td>
                 <td> {{category['title']}} </td>
-                <td> {{category['imageLink']}} </td>
+                <!-- <td>  <img style="max-width: 100px ;" src="static/uploads/{{ category['imageLink'] }}" alt="image"> </a> </td> -->
+                <td> <a href="{{category['imageLink']}}">Image Link</a> </td>
                 <td> {{category['featured']}} </td>
                 <td> {{category['active']}} </td>
                 <td>

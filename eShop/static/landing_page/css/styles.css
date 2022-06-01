@@ -4004,21 +4004,21 @@ textarea.form-control-lg {
 .username img {
   display: inline-block;
   position: relative;
-  max-width: 1.5rem;
+  max-width: 1rem;
   right: 10px;
   bottom: 2px;
 }
 
 .logout {
   position: absolute;
-  font-weight: 700;
+  font-weight: 600;
   right: 20vw;  
 }
 
 .logout img {
   display: inline-block;
   position: relative;
-  max-width: 1.5rem;
+  max-width: 1rem;
   right: 10px;
   bottom: 2px;
 }
@@ -7878,9 +7878,14 @@ textarea.form-control-lg {
   background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
 }
 
+
 .bg-dark {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.headerImg {
+  background-image: url("https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/5/16/5dbfe05b-cf14-4bae-b6af-1ce144bfa18c1652718466927-Bestselling-Styles_Desk.jpg");
 }
 
 .bg-black {

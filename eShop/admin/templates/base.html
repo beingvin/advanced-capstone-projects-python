@@ -9,26 +9,46 @@
   </head>
 
   <body>
-           <!-- menu section start   -->
-        <div class="menu">
-          <div class="wrapper">
-  
-              <ul>
-  
-                  <li> <a href="{{url_for('admin.adminHome')}}">Home</a></li>
-                  <li><a href="{{url_for('admin.manage-admin.manage_admin')}}">Admin</a></li>
-                  <li><a href="{{url_for('admin.manage-category.manage_category')}}">Catagory</a></li>
-                  <li><a href="{{url_for('admin.manage-items.manage_items')}}">Items</a></li>
-                  <li><a href="manage-order.php">Order</a></li>
-                  <li><a href="{{url_for('admin.logout')}}">Logout</a></li>
-                  <li>  </li>
-  
-              </ul>
-          </div>
-  
+    <!-- menu section start   -->
+    <div class="menu">
+      <div class="wrapper">
+        <ul>
+          <li><a href="{{url_for('admin.adminHome')}}">Home</a></li>
+          <li>
+            <a href="{{url_for('admin.manage-admin.manage_admin')}}">Admin</a>
+          </li>
+          <li>
+            <a href="{{url_for('admin.manage-user.manage_user')}}">User</a>
+          </li>
+          <li>
+            <a href="{{url_for('admin.manage-category.manage_category')}}"
+              >Catagory</a
+            >
+          </li>
+          <li>
+            <a href="{{url_for('admin.manage-items.manage_items')}}">Items</a>
+          </li>
+          <li><a href="{{url_for('admin.manage-order.manage_order')}}">Order</a></li>
+          
+          <li class="nav-item ">
+            <a class="nav-link username" href="{{url_for('admin.adminHome') }}">
+              <img 
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAB3klEQVRoge2ZzUpCQRSAvwxd9bMOyrYFvUQvUKGVj9GmdyizlwikTUn1AL1BbYJINKNVEFGQtolAW8yV7Ppzx5njnbuYDw6IzM93vHfmnvGCx+ORJAMUgFOgCnwFUQ2+2w3aJJI80AA6EfEI5Bw5DmQaOCZaPBwlIOXAtw8T+W4UHfj+I4+5fDe2YrcOyKDuZ9sEnnC0sAsGssNix1TCZhFJXvpNwbG0qSF3BaoxuwPQMpQdFC1TiUTsw0DbtKNNAi8WfcXGskng1qJvmBvTjjYJXFr0DXMlOJY2aaCO/QJu4LBCzWkIRoWTZ0AvJczlDx349pECjhhfvkhytnFAlRY6a6JOAm6bYaRRhVkZeEA9YVvB5zKwHbTxeDwxkwUqQBO5EnpYNIFzYElS/iMG8XC8SyVRcSDfjbMouSmNBJrArEa7SdAE5kc10EmgI+NizEhHnVrE+LgnQOTcOgl8CIiYEjm3TgJ3AiKmRM6tk8CFgIgpIkfNGdS/BnFvoa9E7EDjsIFaUHHJt1Gltyh7MSawLy3fpcBk66E3YnhfsIg6Xf0Iin8DJ8DCpOV7yaIO8zov9oZFDThA/ShG6JQSOqwC68AasAIsA3P81VAt4BN4Rp2P74Fr1AHf4/FY8At2qtpieyRQSQAAAABJRU5ErkJggg=="
+              />
+              {{session['username']}}
+            </a>
+          </li>
+          <li class="nav-item logout">
+            <a class="nav-link" href="{{url_for('admin.adminLogout') }}">
+              Logout
+            </a>
+          </li>
+
+        </ul>
       </div>
-  
-      <!-- menu section ends   -->
+    </div>
+
+    <!-- menu section ends   -->
     {% block content %} {% endblock %}
 
     <!-- Footer section starts -->
@@ -37,7 +57,7 @@
       <div class="wrapper">
         <p class="text-center">
           2022 all right reserved | Developed by
-          <a href="#">vin</a>
+          <a href="#">v i n</a>
         </p>
       </div>
     </div>

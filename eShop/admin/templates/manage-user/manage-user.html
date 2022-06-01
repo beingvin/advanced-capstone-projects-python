@@ -1,0 +1,60 @@
+
+{% extends "base.html" %}
+{% block title %}manage user{% endblock %}
+
+
+
+{% block content %}
+
+<!-- Main content section starts  -->
+
+<div class="main-content">
+    <div class="wrapper">
+
+        <h1>Manage User</h1><br>
+
+
+        <br><br>
+
+        <!-- button to add user -->
+        <a href="{{url_for('admin.manage-user.add_user')}}" class="primary-btn">Add User</a><br><br>
+
+
+        <!-- manage users table -->
+
+        <table class="tbl-full">
+            <tr>
+                <th>Sl.No</th>
+                <th class="suc">Full Name</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Actions</th>
+            </tr>
+
+            {%for user in all_user %}
+               
+            <tr>
+                <td> {{ loop.index }}</td>
+                <td>{{user["fullName"] }}</td>
+                <td>{{user["email"]}} </td>
+                <td>{{user["username"]}} </td>
+               
+                <td>
+
+                    <a href="{{url_for('admin.manage-user.change_password', username=user['username'])}}" class="primary-btn">Change Password</a>
+                    <a href="{{url_for('admin.manage-user.update_user', username=user['username'])}}" class="secondary-btn">Update User</a>
+                    <a href="{{url_for('admin.manage-user.delete_user', username=user['username'])}}" class="denger-btn">Delete User</a>
+                </td>
+            </tr>
+            {%endfor%}
+
+
+        </table>
+
+    </div>
+
+</div>
+
+<!-- Main content section ends  -->
+
+{% endblock %}

@@ -12,7 +12,7 @@
         <br>
 
         <!-- manage oders table -->
-        <form action="{{url_for('admin.manage-category.update_category', id=current_category['_id'])}}" method="POST" enctype="multipart/form-data">
+        <form action="{{url_for('admin.manage-category.update_category', id=current_category['_id'] )}}" method="POST" enctype="multipart/form-data">
 
             <table class="tbl-50">
 
@@ -22,10 +22,17 @@
                     <td> <input class="input" type="text" name="title" placeholder="Category title" value="{{ current_category['title'] }}"> </td>
 
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td>Current Image :</td>
                     <td>Image not available.</td>
+                </tr> -->
+
+                <tr>
+                    <td>Image Link :</td>
+                    <td> <input class="input" type="text" name="imageLink" value="{{ current_category['imageLink'] }}" > </td>
+
                 </tr>
+
 
                 <tr>
                     <td>New Image :</td>

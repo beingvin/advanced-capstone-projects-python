@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+{% block title %}Manage Items{% endblock %}
+
+{% block content %}
+
+<!-- Main content section starts  -->
+
+<div class="main-content">
+    <div class="wrapper">
+
+        <h1>Update items</h1> <br>
+
+        <br>
+
+        <!-- update items  table -->
+        <form action="{{url_for('admin.manage-items.update_items', id = current_item['_id'] )}}" method="POST" enctype="multipart/form-data">
+
+            <table class="tbl-50">
+                <tr>
+                  <td>Title :</td>
+                  <td>
+                    <input class="input" type="text" name="title" value="{{ current_item['title'] }}" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Price :</td>
+                  <td>
+                    <input
+                      class="input"
+                      type="number"
+                      name="price"
+                      value="{{ current_item['price'] }}"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Brand :</td>
+                  <td>
+                    <input
+                      class="input"
+                      type="text"
+                      name="brand"
+                      value="{{ current_item['brand'] }}"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Size :</td>
+                  <td>
+                    <!-- {% if current_item['size'][0] == "S"  %}
+                    <input type="checkbox" name="size" value="S" checked /> S <br />
+                    {%else%}
+                    <input type="checkbox" name="size" value="S"  /> S <br />
+                    {%endif%}
+
+                    {% if current_item['size'][1] == "L"  %}
+                    <input type="checkbox" name="size" value="L" checked /> L <br />
+                    {%else%}
+                    <input type="checkbox" name="size"  value="L" /> L <br />
+                    {%endif%}
+                    
+                    {% if current_item['size'][2] == "M"  %}
+                    <input type="checkbox" name="size" value="M" checked /> M <br />
+                    {%else%}
+                    <input type="checkbox" name="size" value="M" /> M <br />
+                    {%endif%}
+                    
+                    {% if current_item['size'][3] == "XL"  %}
+                    <input type="checkbox" name="size" value="XL" checked /> XL <br />
+                    {%else%}
+                    <input type="checkbox" name="size" value="XL" /> XL <br />
+                    {%endif%}
+
+                    {% if current_item['size'][4] == "XXL"  %}
+                    <input type="checkbox" name="size" value="XXL" checked /> XXL <br />
+                    {%else%}
+                    <input type="checkbox" name="size" value="XXL" /> XXL <br />
+                    {%endif%}
+
+                    {% if current_item['size'][5] == "XXXL"  %}
+                    <input type="checkbox" name="size" value="XXXL" checked /> XXXL <br />
+                    {%else%}
+                    <input type="checkbox" name="size" value="XXXL" /> XXXL <br />
+                    {%endif%} -->
+                    
+
+                    <!-- {% for size in current_item['size']  %}
+                        {% if size == "S" or size == "M" or size == "L" or size == "XL" or size == "XXL" or size == "XXL" or size == "XXXL"  %}
+                        <input type="checkbox" name="size" value="{{ size }}" checked /> {{ size }} <br /> 
+                        {% endif %}
+                    {% endfor %} -->
+
+                    <input type="checkbox" name="size" value="S" /> S <br />
+
+                    <input type="checkbox" name="size" value="L" /> L <br />            
+             
+                    <input type="checkbox" name="size" value="M" /> M <br />
+        
+                    <input type="checkbox" name="size" value="XL" /> XL <br />
+        
+                    <input type="checkbox" name="size" value="XXL" /> XXL <br />
+        
+                    <input type="checkbox" name="size" value="XXXL" /> XXXL <br />
+
+
+                  </td>
+                </tr>
+        
+                <tr>
+                  <td>Product Details :</td>
+        
+                  <td>
+                    Product Description :
+                        <textarea
+                          class="input"
+                          name="description"
+                          cols="30"
+                          rows="4"
+                        > {{ current_item['productDetails']['descripation'] }}" </textarea> <br>
+        
+                    Product Material :
+                    <input class="input" type="text" name="material" value="{{ current_item['productDetails']['material'] }}" /> <br>
+        
+                    Product Type :
+                    <input class="input" type="text" name="type" value="{{ current_item['productDetails']['type'] }}"" /> <br>
+        
+                    Product Gender :
+                    <input class="input" type="text" name="gender" value="{{ current_item['productDetails']['gender'] }}" /> <br>
+        
+                    Product Occasion :
+                    <input class="input" type="text" name="occasion" value="{{ current_item['productDetails']['occasion'] }}" /> <br>
+                  </td>
+                </tr>
+        
+                <tr></tr>
+        
+                <!-- <tr>
+                  <td>Image Link :</td>
+                  <td><input class="input" type="file" name="image" /></td>
+                </tr> -->
+                
+                <tr>
+                  <td>Image Link :</td>
+                  <td> <input class="input" type="text" name="imageLink" placeholder="Image Link"> </td>
+              </tr>
+
+                <tr>
+                  <td>Category :</td>
+                  <td>
+                    <select class="input" name="category" required>
+                      {% for category in all_categories %}
+                      <option> {{ category['title'] }} </option>
+                      {% endfor %}
+                    </select>
+                  </td>
+                </tr>
+        
+                <tr>
+
+                    <td>Featured :</td>
+
+                    <td>
+
+                        {% if current_item['featured'] == "Yes"  %}
+                        <input type="radio" name="featured" value="Yes" checked > Yes </input>
+                        <input type="radio" name="featured" value="No"> No </input>
+                        {% else %}
+                        <input type="radio" name="featured" value="Yes" > Yes </input>
+                        <input type="radio" name="featured" value="No" checked > No </input>
+                        {% endif %}
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Active :</td>
+
+                    <td>
+                        {% if current_item['active'] == "Yes" %}
+                        <input type="radio" name="active" value="Yes" checked> Yes
+                        <input type="radio" name="active" value="No"> No
+                        {% else %}
+                        <input type="radio" name="active" value="Yes" > Yes
+                        <input type="radio" name="active" value="No" checked> No
+                        {% endif %}
+                    </td>
+                </tr>
+        
+                <tr>
+             
+                  <td colspan="2">
+                    <br />
+                    <input
+                      type="submit"
+                      name="submit"
+                      value="Update-Items"
+                      class="submit-btn"
+                    />
+                  </td>
+                </tr>
+              </table>
+        </form>
+
+
+    </div>
+
+</div>
+
+<!-- Main content section ends  -->
+
+
+<<!-- Footer section starts -->
+
+    {% endblock %}
+
+    <!-- Footer section ends  -->

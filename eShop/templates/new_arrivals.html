@@ -1,0 +1,306 @@
+{% extends "partial/base.html" %} {% block title %}home{% endblock %} {% block
+content %}
+
+<div class="container px-4 px-lg-5 mt-5">
+  <div
+    class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+  >
+    <div class="col mb-5">
+      <div class="card h-100">
+        <!-- Product image-->
+        <img
+          class="card-img-top"
+          src="https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2022/5/2/8f2c6f5e-8b1a-4204-a63f-990b6dd430d11651475194155-Activewear.jpg"
+          alt="..."
+        />
+        <!-- Product details-->
+        <div class="card-body p-4">
+          <div class="text-center">
+            <!-- Product name-->
+            <h5 class="fw-bolder">Fancy Product</h5>
+            <!-- Product price-->
+            $40.00 - $80.00
+          </div>
+        </div>
+        <!-- Product actions-->
+        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+          <div class="text-center">
+            <a
+              class="btn btn-outline-dark mt-auto"
+              href="{{url_for('main.items')}}"
+              >View options</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-5">
+      <div class="card h-100">
+        <!-- Sale badge-->
+        <div
+          class="badge bg-dark text-white position-absolute"
+          style="top: 0.5rem; right: 0.5rem"
+        >
+          Sale
+        </div>
+        <!-- Product image-->
+        <img
+          class="card-img-top"
+          src="https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2022/5/2/032793cd-1d10-4c96-abcc-c11ca8b625a51651475194630-Trackpants.jpg"
+          alt="..."
+        />
+        <!-- Product details-->
+        <div class="card-body p-4">
+          <div class="text-center">
+            <!-- Product name-->
+            <h5 class="fw-bolder">Special Item</h5>
+            <!-- Product reviews-->
+            <div class="d-flex justify-content-center small text-warning mb-2">
+              <div class="bi-star-fill"></div>
+              <div class="bi-star-fill"></div>
+              <div class="bi-star-fill"></div>
+              <div class="bi-star-fill"></div>
+              <div class="bi-star-fill"></div>
+            </div>
+            <!-- Product price-->
+            <span class="text-muted text-decoration-line-through">$20.00</span>
+            $18.00
+          </div>
+        </div>
+        <!-- Product actions-->
+        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+          <div class="text-center">
+            <a
+              class="btn btn-outline-dark mt-auto"
+              href="{{url_for('main.cart', price=18) }}"
+              >Add to cart</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-5">
+      <div class="card h-100">
+        <!-- Sale badge-->
+        <div
+          class="badge bg-dark text-white position-absolute"
+          style="top: 0.5rem; right: 0.5rem"
+        >
+          Sale
+        </div>
+        <!-- Product image-->
+        <img
+          class="card-img-top"
+          src="https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2022/5/2/25a1ed95-5f3e-449a-8ca4-ca7128fbda241651475194660-Trousers.jpg"
+          alt="..."
+        />
+        <!-- Product details-->
+        <div class="card-body p-4">
+          <div class="text-center">
+            <!-- Product name-->
+            <h5 class="fw-bolder">Sale Item</h5>
+            <!-- Product price-->
+            <span class="text-muted text-decoration-line-through">$50.00</span>
+            $25.00
+          </div>
+        </div>
+        <!-- Product actions-->
+        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+          <div class="text-center">
+            <a
+              class="btn btn-outline-dark mt-auto"
+              href="{{url_for('main.cart', price=25) }}"
+              >Add to cart</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-5">
+      <div class="card h-100">
+        <!-- Product image-->
+        <img
+          class="card-img-top"
+          src="https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2022/5/2/19ec05fd-2288-4d94-826e-7c8e980ed90a1651475194672-T-Shirts--Men-.jpg"
+          alt="..."
+        />
+        <!-- Product details-->
+        <div class="card-body p-4">
+          <div class="text-center">
+            <!-- Product name-->
+            <h5 class="fw-bolder">Popular Item</h5>
+            <!-- Product reviews-->
+            <div class="d-flex justify-content-center small text-warning mb-2">
+              <div class="bi-star-fill"></div>
+              <div class="bi-star-fill"></div>
+              <div class="bi-star-fill"></div>
+              <div class="bi-star-fill"></div>
+              <div class="bi-star-fill"></div>
+            </div>
+            <!-- Product price-->
+            $40.00
+          </div>
+        </div>
+        <!-- Product actions-->
+        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+          <div class="text-center">
+            <a
+              class="btn btn-outline-dark mt-auto"
+              href="{{url_for('main.cart', price=40) }}"
+              >Add to cart</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-5">
+      <div class="card h-100">
+        <!-- Sale badge-->
+        <div
+          class="badge bg-dark text-white position-absolute"
+          style="top: 0.5rem; right: 0.5rem"
+        >
+          Sale
+        </div>
+        <!-- Product image-->
+        <img
+          class="card-img-top"
+          src="https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2022/5/2/aaa1f4eb-faf3-41ff-b807-dd05a92755311651475194162-Backpacks.jpg"
+          alt="..."
+        />
+        <!-- Product details-->
+        <div class="card-body p-4">
+          <div class="text-center">
+            <!-- Product name-->
+            <h5 class="fw-bolder">Sale Item</h5>
+            <!-- Product price-->
+            <span class="text-muted text-decoration-line-through">$50.00</span>
+            $25.00
+          </div>
+        </div>
+        <!-- Product actions-->
+        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+          <div class="text-center">
+            <a
+              class="btn btn-outline-dark mt-auto"
+              href="{{url_for('main.cart', price=25) }}"
+              >Add to cart</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-5">
+      <div class="card h-100">
+        <!-- Product image-->
+        <img
+          class="card-img-top"
+          src="https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2022/5/2/24adafbb-843e-40b5-9da0-03704825c0db1651475194171-Beauty-Essentials.jpg"
+          alt="..."
+        />
+        <!-- Product details-->
+        <div class="card-body p-4">
+          <div class="text-center">
+            <!-- Product name-->
+            <h5 class="fw-bolder">Fancy Product</h5>
+            <!-- Product price-->
+            $120.00 - $280.00
+          </div>
+        </div>
+        <!-- Product actions-->
+        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+          <div class="text-center">
+            <a
+              class="btn btn-outline-dark mt-auto"
+              href="{{url_for('main.items') }}"
+              >View options</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-5">
+      <div class="card h-100">
+        <!-- Sale badge-->
+        <div
+          class="badge bg-dark text-white position-absolute"
+          style="top: 0.5rem; right: 0.5rem"
+        >
+          Sale
+        </div>
+        <!-- Product image-->
+        <img
+          class="card-img-top"
+          src="https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2022/5/2/bc9e2b7d-a685-4806-95dd-fa27dd15df3d1651475194279-Home-Decor.jpg"
+          alt="..."
+        />
+        <!-- Product details-->
+        <div class="card-body p-4">
+          <div class="text-center">
+            <!-- Product name-->
+            <h5 class="fw-bolder">Special Item</h5>
+            <!-- Product reviews-->
+            <div class="d-flex justify-content-center small text-warning mb-2">
+              <div class="bi-star-fill"></div>
+              <div class="bi-star-fill"></div>
+              <div class="bi-star-fill"></div>
+              <div class="bi-star-fill"></div>
+              <div class="bi-star-fill"></div>
+            </div>
+            <!-- Product price-->
+            <span class="text-muted text-decoration-line-through">$20.00</span>
+            $18.00
+          </div>
+        </div>
+        <!-- Product actions-->
+        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+          <div class="text-center">
+            <a
+              class="btn btn-outline-dark mt-auto"
+              href="{{url_for('main.cart', price=18) }}"
+              >Add to cart</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-5">
+      <div class="card h-100">
+        <!-- Product image-->
+        <img
+          class="card-img-top"
+          src="https://assets.myntassets.com/f_webp,w_196,c_limit,fl_progressive,dpr_2.0/assets/images/2022/5/2/de547809-394d-4a2d-93c3-f63f5941710a1651475194235-Flats-_-Heels.jpg"
+          alt="..."
+        />
+        <!-- Product details-->
+        <div class="card-body p-4">
+          <div class="text-center">
+            <!-- Product name-->
+            <h5 class="fw-bolder">Popular Item</h5>
+            <!-- Product reviews-->
+            <div class="d-flex justify-content-center small text-warning mb-2">
+              <div class="bi-star-fill"></div>
+              <div class="bi-star-fill"></div>
+              <div class="bi-star-fill"></div>
+              <div class="bi-star-fill"></div>
+              <div class="bi-star-fill"></div>
+            </div>
+            <!-- Product price-->
+            $40.00
+          </div>
+        </div>
+        <!-- Product actions-->
+        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+          <div class="text-center">
+            <a
+              class="btn btn-outline-dark mt-auto"
+              href="{{url_for('main.cart', price=40) }}"
+              >Add to cart</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

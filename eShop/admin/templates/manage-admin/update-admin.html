@@ -16,25 +16,25 @@
 
 
         <!-- update admin table -->
-        <form action="" method="POST">
+        <form action="{{url_for('admin.manage-admin.update_admin')}}" method="POST">
 
             <table class="tbl-50">
 
                 <tr>
                     <td>Full name :</td>
-                    <td> <input class="input" type="text" name="full_name" value="{{ current_admin["fullName"] }}"> </td>
+                    <td> <input class="input" type="text" name="new_full_name" value="{{ current_admin["fullName"] }}"> </td>
 
                 </tr>
 
                 <tr>
                     <td>Username:</td>
-                    <td> <input class="input" type="text" name="username" value="{{ current_admin["username"] }}"> </td>
+                    <td> <input class="input" type="text" name="new_username" value="{{ current_admin["username"] }}"> </td>
 
                 </tr>
 
 
                 <td colspan='2'>
-                    <input type="hidden" name="id" value="" class="submit-btn">
+                    <input type="hidden" name="username" value="{{ current_admin["username"] }}" class="submit-btn">
 
                     <input type="submit" name="submit" value="Update Admin" class="submit-btn">
                 </td>

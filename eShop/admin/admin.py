@@ -2,6 +2,8 @@ from flask import Blueprint, render_template, url_for, redirect, session,request
 from .manage_admin import mng_admn
 from .manage_category import mng_ctgry
 from .manage_items import mng_items
+from .manage_order import mng_order
+from .manage_user import mng_user
 from extention import mongodb_client
 
 admin = Blueprint('admin', __name__, template_folder="templates", static_folder="static")
@@ -9,11 +11,16 @@ admin = Blueprint('admin', __name__, template_folder="templates", static_folder=
 admin.register_blueprint(mng_admn)
 admin.register_blueprint(mng_ctgry)
 admin.register_blueprint(mng_items)
+admin.register_blueprint(mng_order)
+admin.register_blueprint(mng_user)
 
 
 @admin.route("/home", methods=['GET','POST'])
 def adminHome():
-       return render_template("admin_home.html")
+       if "username" in session:
+              return render_template("admin_home.html")
+       else:
+              return redirect(url_for("admin.adminLogin"))
 
 
 @admin.route("/login", methods=['GET','POST'])
@@ -32,7 +39,7 @@ def adminLogin():
        return render_template("admin_login.html")
 
 @admin.route("/logout")
-def logout():
+def adminLogout():
     session.clear()
     return redirect(url_for("admin.adminLogin"))
 

@@ -8,21 +8,26 @@
     />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title> Livin Boutique | eShop | Online Shopping </title>
-
+    <title>Livin Boutique | eShop | Online Shopping</title>
 
     <!-- Favicon-->
     <link
       rel="icon"
       type="image/x-icon"
-      href="static/landing_page/assets/favicon.ico"
+      href="static {{url_for('static', filename='landing_page/assets/favicon.ico')}}"
     />
     <!-- Bootstrap icons-->
     <link
-      href="static/landing_page/https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
       rel="stylesheet"
     />
     <!-- Core theme CSS (includes Bootstrap)-->
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='cart/styles.css') }}"
+    />
+
     <link
       rel="stylesheet"
       href="{{url_for('static', filename='landing_page/css/styles.css')}}"
@@ -32,7 +37,9 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="{{url_for('main.home') }}">Livin Boutique</a>
+        <a class="navbar-brand" href="{{url_for('main.home') }}"
+          >Livin Boutique</a
+        >
         <button
           class="navbar-toggler"
           type="button"
@@ -68,30 +75,36 @@
               >
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a class="dropdown-item" href="{{url_for('main.all_products') }}"
+                  <a
+                    class="dropdown-item"
+                    href="{{url_for('main.all_products') }}"
                     >All Products</a
                   >
                 </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="{{url_for('main.popular_items') }}"
+                  <a
+                    class="dropdown-item"
+                    href="{{url_for('main.popular_items') }}"
                     >Popular Items</a
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item" href="{{url_for('main.new_arrivals') }}"
+                  <a
+                    class="dropdown-item"
+                    href="{{url_for('main.new_arrivals') }}"
                     >New Arrivals</a
                   >
                 </li>
               </ul>
             </li>
-            {% if username %}
+            {% if session['username'] %}
             <li class="nav-item username">
               <a class="nav-link" href="{{url_for('main.home') }}">
                 <img
                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAB3klEQVRoge2ZzUpCQRSAvwxd9bMOyrYFvUQvUKGVj9GmdyizlwikTUn1AL1BbYJINKNVEFGQtolAW8yV7Ppzx5njnbuYDw6IzM93vHfmnvGCx+ORJAMUgFOgCnwFUQ2+2w3aJJI80AA6EfEI5Bw5DmQaOCZaPBwlIOXAtw8T+W4UHfj+I4+5fDe2YrcOyKDuZ9sEnnC0sAsGssNix1TCZhFJXvpNwbG0qSF3BaoxuwPQMpQdFC1TiUTsw0DbtKNNAi8WfcXGskng1qJvmBvTjjYJXFr0DXMlOJY2aaCO/QJu4LBCzWkIRoWTZ0AvJczlDx349pECjhhfvkhytnFAlRY6a6JOAm6bYaRRhVkZeEA9YVvB5zKwHbTxeDwxkwUqQBO5EnpYNIFzYElS/iMG8XC8SyVRcSDfjbMouSmNBJrArEa7SdAE5kc10EmgI+NizEhHnVrE+LgnQOTcOgl8CIiYEjm3TgJ3AiKmRM6tk8CFgIgpIkfNGdS/BnFvoa9E7EDjsIFaUHHJt1Gltyh7MSawLy3fpcBk66E3YnhfsIg6Xf0Iin8DJ8DCpOV7yaIO8zov9oZFDThA/ShG6JQSOqwC68AasAIsA3P81VAt4BN4Rp2P74Fr1AHf4/FY8At2qtpieyRQSQAAAABJRU5ErkJggg=="
                 />
-                {{ username }}
+                {{session['username'].capitalize() }}
               </a>
             </li>
             <li class="nav-item logout">
@@ -111,27 +124,26 @@
             </li>
             {%endif%}
           </ul>
-          <form class="d-flex">
+          <form action="viewCart" method="post" class="d-flex">
             <button class="btn btn-outline-dark" type="submit">
               <i class="bi-cart-fill me-1"></i>
               Cart
-              <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+              <span class="badge bg-dark text-white ms-1 rounded-pill">
+                {{ session['cart'] }}
+              </span>
             </button>
           </form>
         </div>
       </div>
     </nav>
 
-{% block content %}
-
-
-{% endblock %}
+    {% block content %} {% endblock %}
 
     <!-- Footer-->
     <footer class="py-5 bg-dark">
       <div class="container">
         <p class="m-0 text-center text-white">
-          Copyright &copy; Your Website 2022
+          Copyright © Livin Boutique 2022
         </p>
       </div>
     </footer>

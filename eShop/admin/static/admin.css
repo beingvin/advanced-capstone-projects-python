@@ -5,6 +5,11 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
 .wrapper {
     padding: 1%;
     width: 80%;
@@ -35,26 +40,38 @@
     align-items: center;
     align-content: center;
     justify-content: space-around;
-    margin-left: 10%;
     list-style: none;
 }
 
 .menu ul li a {
     text-decoration: none;
     font-weight: bold;
-    color: #ff6b81;
+    color: #8D458B
 }
 
 .menu ul li a:hover {
-    color: #ff4757;
+    color: #dd2b3a;
+    /* color: #c01d1d; */
 }
 
+.menu ul li a img {
+    display:inline-block; 
+    position:relative;
+    max-width: 16px;
+    right:10px;
+    top:2px;
+}
+
+.menu ul li .username {
+    color: #c01d1d;
+}
 
 /* css for main-content */
 
 .main-content {
     padding: 3% 0;
     background-color: #f1f2f6;
+    min-height: 80vh;
 }
 
 .col-4 {
@@ -170,7 +187,17 @@ table tr td {
 /* css for footer */
 
 .footer {
-    background-color: #ff4757;
+    background-color: #8D458B;
+    position: relative;
+    bottom: 0;
+    width: vw;
+    /* height: 50px; */
+
+}
+
+.footer a {
+    text-decoration: none;
+    color: #fff;
 }
 
 /* css for  Admin login page */
@@ -180,4 +207,4 @@ table tr td {
     width: 50%;
     margin: 12% auto;
     padding: 2%;
-}
+}   

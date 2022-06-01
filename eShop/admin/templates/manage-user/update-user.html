@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Update User{% endblock %}
+
+{% block content %}
+
+<!-- Main content section starts  -->
+
+<div class="main-content">
+    <div class="wrapper">
+
+        <h1>Update User</h1> <br>
+
+        <br>
+
+        <!-- Get data from the database ends  -->
+
+
+        <!-- update user table -->
+        <form action="{{url_for('admin.manage-user.update_user')}}" method="POST">
+
+            <table class="tbl-50">
+
+                <tr>
+                    <td>Full name :</td>
+                    <td> <input class="input" type="text" name="Full_Name" value="{{ current_user["fullName"] }}"> </td>
+
+                </tr>
+                <tr>
+                    <td>Email :</td>
+                    <td> <input class="input" type="text" name="Email" value="{{ current_user["email"] }}"> </td>
+
+                </tr>
+
+                <tr>
+                    <td>Username:</td>
+                    <td> <input class="input" type="text" name="Username" value="{{ current_user["username"] }}"> </td>
+
+                </tr>
+
+                <td colspan='2'>
+                    <input type="hidden" name="id" value="" class="submit-btn">
+
+                    <input type="submit" name="submit" value="Update user" class="submit-btn">
+                </td>
+
+                </tr>
+
+            </table>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- Main content section ends  -->
+
+
+{% endblock %}

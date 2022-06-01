@@ -1,0 +1,45 @@
+{% extends "partial/base.html" %} 
+
+{% block title %}home{% endblock %} 
+
+
+{% block content %}
+
+
+
+
+<section class="container content-section">
+  <h2 class="section-header">CART</h2>
+  <div class="cart-row">
+    <span class="cart-item cart-header cart-column">ITEM</span>
+    <span class="cart-price cart-header cart-column">PRICE</span>
+    <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+  </div>
+  <div class="cart-items"></div>
+  <div class="cart-total">
+    <strong class="cart-total-title">Total</strong>
+    <span class="cart-total-price">$0</span>
+  </div>
+  <button class="btn-primary btn-purchase" id="purchase_btn" type="button">PURCHASE</button>
+</section>
+
+
+
+
+  {% block javascript %}
+
+  <script src="https://js.stripe.com/v3/"></script>
+
+  <script src="{{ url_for('static', filename='cart/cart.js') }}"></script>
+
+  <script src="{{ url_for('static', filename='stripe/script-ajax.js') }}"></script>
+
+
+  {% endblock %}
+  
+  
+  
+  {% endblock %}
+
+  
+
