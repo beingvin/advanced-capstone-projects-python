@@ -21,13 +21,13 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
       rel="stylesheet"
     />
-    <!-- Core theme CSS (includes Bootstrap)-->
 
+    <!-- Cart checkout CSS -->
     <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='cart/styles.css') }}"
+    rel="stylesheet" href="{{ url_for('main.mng_cart.static', filename='styles.css') }}"
     />
 
+    <!-- Core theme CSS (includes Bootstrap)-->
     <link
       rel="stylesheet"
       href="{{url_for('static', filename='landing_page/css/styles.css')}}"
@@ -124,7 +124,7 @@
             </li>
             {%endif%}
           </ul>
-          <form action="viewCart" method="post" class="d-flex">
+          <form action="{{url_for('main.mng_cart.viewCart') }}" method="post" class="d-flex">
             <button class="btn btn-outline-dark" type="submit">
               <i class="bi-cart-fill me-1"></i>
               Cart
@@ -150,6 +150,6 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="static/landing_page/js/scripts.js"></script>
+    <script src="{{url_for('main.static', filename='landing_page/js/scripts.js') }}"></script>
   </body>
 </html>

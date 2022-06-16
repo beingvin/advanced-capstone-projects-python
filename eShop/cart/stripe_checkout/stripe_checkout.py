@@ -1,31 +1,53 @@
 from flask import current_app, render_template, url_for, request, abort, Blueprint, session
+from extention import mongodb_client
+from bson import ObjectId, json_util
 import stripe
 
-stripe_checkout = Blueprint("stripe_checkout", __name__, static_folder="static", template_folder="templates") 
+stripe_mng = Blueprint("stripe_mng", __name__, static_folder="static", template_folder="templates") 
 
 
-@stripe_checkout.route('/stripe_pay')
+@stripe_mng .route('/stripe_pay',  methods=['POST'])
 def stripe_pay():
-
+    fetch_cart_items = request.json 
+    cart_items = []
+    for i in fetch_cart_items.items():
+        for k in i[1]:
+            # print(k)
+            id = k["id"]
+            quantity = k["quantity"]
+            collection = mongodb_client.db.items.find_one({"_id":ObjectId(id)})
+            # print(collection['title'])
+            name = collection['title'] 
+            brand = collection['brand'] 
+            price = int(collection['price']+"00")
+            items = {
+            "price_data": {
+                "currency": "INR",
+                "product_data": { "name": f"{name}\n - brand - {brand}"},
+                "unit_amount": price,
+            },
+            "quantity": quantity
+            }
+            cart_items.append(items)
+    
+    # print(cart_items)
+ 
     stripe.api_key = current_app.config['STRIPE_API_KEY']
-
+ 
     session = stripe.checkout.Session.create(
         payment_method_types=['card'],
-        line_items=[{
-            'price': "price_1L3cOeDegv4tzqIHR9Ramsc6",
-            'quantity': 1,
-        }],
+        line_items = cart_items,
         mode='payment',
-        success_url=url_for('main.stripe_checkout.thanks', _external=True) + '?session_id={CHECKOUT_SESSION_ID}',
+        success_url=url_for('main.mng_cart.stripe_mng.thanks', _external=True) + '?session_id={CHECKOUT_SESSION_ID}',
         cancel_url=url_for('main.home', _external=True)
     )
     return {
-        'checkout_session_id': session['id'], 
-        'checkout_public_key': current_app.config['STRIPE_PUBLIC_KEY']
+        "url":session["url"]
     }
 
 
-@stripe_checkout.route('/stripe_webhook', methods=['POST'])
+
+@stripe_mng .route('/stripe_webhook', methods=['POST'])
 def stripe_webhook():
 
     endpoint_secret_key = current_app.config['STRIPE_ENDPOINT_SECRET']
@@ -62,7 +84,7 @@ def stripe_webhook():
         
     return {}
 
-@stripe_checkout.route('/thanks')
+@stripe_mng .route('/thanks')
 def thanks():
     if "username" in session:
         return render_template('thanks.html')

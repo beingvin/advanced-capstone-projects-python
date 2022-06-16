@@ -1,0 +1,10 @@
+cryptography==37.0.2
+Flask==2.0.2
+Flask-Migrate==3.1.0
+Jinja2==3.0.3
+python-dateutil==2.8.2
+requests==2.27.1
+stripe==3.2.0
+urllib3==1.26.9
+Werkzeug==2.0.2
+Flask-PyMongo==2.3.0

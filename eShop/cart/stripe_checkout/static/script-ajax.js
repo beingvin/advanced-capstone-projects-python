@@ -4,7 +4,7 @@ console.log('connected stripe')
 const button = document.querySelector('#purchase_btn');
 
 button.addEventListener('click', event => {
-    fetch('/stripe_pay')
+    fetch('/cart/stripe_pay')
     .then((result) => { return result.json(); })
     .then((data) => {
         var stripe = Stripe(data.checkout_public_key);

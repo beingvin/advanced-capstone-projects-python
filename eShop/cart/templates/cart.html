@@ -1,12 +1,10 @@
 {% extends "partial/base.html" %} 
-
 {% block title %}home{% endblock %} 
 
 
+
+
 {% block content %}
-
-
-
 
 <section class="container content-section">
   <h2 class="section-header">CART</h2>
@@ -20,26 +18,21 @@
     <strong class="cart-total-title">Total</strong>
     <span class="cart-total-price">$0</span>
   </div>
-  <button class="btn-primary btn-purchase" id="purchase_btn" type="button">PURCHASE</button>
+  <button class="btn-primary btn-purchase" id="purchase_btn" type="button">
+    PURCHASE
+  </button>
+
 </section>
 
+{% block javascript %}
 
+<!-- cart items -->
+<script src="{{ url_for('main.mng_cart.static', filename='cart.js') }}"></script>
 
+<!-- stripe  -->
+<script src="https://js.stripe.com/v3/"></script>
+<script src="{{ url_for('main.mng_cart.stripe_mng.static', filename='stripe_checkout.js') }}"></script>
 
-  {% block javascript %}
+<!-- <script src="{{ url_for('main.mng_cart.stripe_mng.static', filename='script-ajax.js') }}"></script> -->
 
-  <script src="https://js.stripe.com/v3/"></script>
-
-  <script src="{{ url_for('static', filename='cart/cart.js') }}"></script>
-
-  <script src="{{ url_for('static', filename='stripe/script-ajax.js') }}"></script>
-
-
-  {% endblock %}
-  
-  
-  
-  {% endblock %}
-
-  
-
+{% endblock %} {% endblock %}
